@@ -12,6 +12,13 @@ const API_BASE_URL = process.env.API_BASE_URL;
 const API_KEY = process.env.API_KEY;
 const getWeather = async (req, res) => {
     const city = req.query.q;
+    if (!city) {
+        res.status(400).json({
+            code: 400,
+            message: "parameter q not found!",
+        });
+        return;
+    }
     const url = `${API_BASE_URL}/current.json`;
     try {
         const response = await (0, axios_1.default)(url, {
