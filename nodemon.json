@@ -3,7 +3,9 @@
     "ext": "ts",
     "watch": [
         "src",
-        "routes"
+        "routes",
+        "types",
+        "handlers"
     ],
     "ignore": [
         "dist/*"

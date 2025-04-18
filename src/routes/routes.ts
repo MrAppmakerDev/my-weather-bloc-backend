@@ -7,4 +7,4 @@ const welcomeRoute = Router();
 weatherRoute.get("/", getWeather);
 welcomeRoute.get("/", welcome);
 
-export { weatherRoute, welcomeRoute};
+export { weatherRoute, welcomeRoute };

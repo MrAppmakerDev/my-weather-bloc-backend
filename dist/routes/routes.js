@@ -1,8 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.welcomeRoute = exports.weatherRoute = void 0;
 const express_1 = require("express");
 const route_handlers_1 = require("../handlers/route-handlers");
-const router = (0, express_1.Router)();
-router.get("/", route_handlers_1.getWeather);
-router.get("/api", route_handlers_1.welcome);
-exports.default = router;
+const weatherRoute = (0, express_1.Router)();
+exports.weatherRoute = weatherRoute;
+const welcomeRoute = (0, express_1.Router)();
+exports.welcomeRoute = welcomeRoute;
+weatherRoute.get("/", route_handlers_1.getWeather);
+welcomeRoute.get("/", route_handlers_1.welcome);
