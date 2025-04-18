@@ -16,6 +16,7 @@ if (!API_KEY)
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.use("/api/weather", routes_1.default);
+app.use("/api", routes_1.default);
 app.listen(PORT, () => {
     console.log(`Proxy server is running on port ${PORT}`);
 });

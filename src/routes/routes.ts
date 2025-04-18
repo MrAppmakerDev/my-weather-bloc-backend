@@ -1,7 +1,10 @@
 import { Router } from "express";
-import { getWeather } from "../handlers/route-handlers";
-const router = Router();
+import { getWeather, welcome } from "../handlers/route-handlers";
 
-router.get("/", getWeather);
+const weatherRoute = Router();
+const welcomeRoute = Router();
 
-export default router;
+weatherRoute.get("/", getWeather);
+welcomeRoute.get("/", welcome);
+
+export { weatherRoute, welcomeRoute};

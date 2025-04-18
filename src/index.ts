@@ -2,7 +2,7 @@ import express, { Express } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
-import router from "./routes/routes";
+import { welcomeRoute, weatherRoute } from "./routes/routes";
 
 dotenv.config();
 
@@ -17,7 +17,8 @@ if (!API_KEY)
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/weather", router);
+app.use("/api", welcomeRoute);
+app.use("/api/weather", weatherRoute);
 
 app.listen(PORT, () => {
   console.log(`Proxy server is running on port ${PORT}`);
