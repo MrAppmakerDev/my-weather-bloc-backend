@@ -2,7 +2,8 @@
     "exec": "ts-node src/index.ts",
     "ext": "ts",
     "watch": [
-        "src"
+        "src",
+        "routes"
     ],
     "ignore": [
         "dist/*"

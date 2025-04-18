@@ -1,12 +1,24 @@
-import express from "express";
+import express, { Express } from "express";
+import dotenv from "dotenv";
+import cors from "cors";
 
-const app = express();
-const PORT = 3000;
+import router from "./routes/routes";
 
-app.get("/", (req, res) => {
-  res.send({ status: 200, message: "Welcome to my node server!" });
-});
+dotenv.config();
+
+const app: Express = express();
+
+const PORT = process.env.PORT || 8000;
+const API_KEY = process.env.API_KEY;
+
+if (!API_KEY)
+  throw new Error("API_KEY is not defined in environment variables.");
+
+app.use(cors());
+app.use(express.json());
+
+app.use("/api/weather", router);
 
 app.listen(PORT, () => {
-  console.log(`Server running: http://localhost:${PORT}`);
+  console.log(`Proxy server is running on port ${PORT}`);
 });
